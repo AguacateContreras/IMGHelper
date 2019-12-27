@@ -6,7 +6,9 @@
 
 
     public function return(){
+      if(!is_dir($this->path)) return false;
       $files = scandir($this->path);
+
       $images = array();
       foreach($files as $file){
         if(is_image($file)){
@@ -19,9 +21,21 @@
 
     public function print($attributes=''){
       $images = $this->return();
+      if(!$images) return false;
       foreach($images as $img){
         print('<img src="'.$img.'" '.$attributes.'>');
       }
+      return true;
+    }
+
+
+    public function random(){
+      $images = $this->return();
+      if(!$images) return false;
+      if(count($images)>0){
+        return $images[rand(0, count($images)-1)];
+      }
+      return false;
     }
 
 
@@ -32,6 +46,6 @@
 
 
   function is_image($filename){
-    return (preg_match("/\.(gif|jpg|jpeg|tiff|png|svg)$/", strtolower($filename)));
+    return (preg_match("/\.(gif|jpg|jpeg|tiff|png|svg|bpm)$/", strtolower($filename)));
   }
 ?>
