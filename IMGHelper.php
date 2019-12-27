@@ -17,6 +17,14 @@
     }
 
 
+    public function print($attributes=''){
+      $images = $this->return();
+      foreach($images as $img){
+        print('<img src="'.$img.'" '.$attributes.'>');
+      }
+    }
+
+
     private function use_path($file){
       return preg_replace("/\/*$/", "", $this->path)."/".$file;
     }
