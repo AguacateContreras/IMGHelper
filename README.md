@@ -25,7 +25,7 @@ $images = $IMGHelper->get_images();
 Gets images from the path and use `<img>` tag to print in the html page.
 #### Description
 ```php
-public print ( string $attributes ) : void
+public print ( string $attributes ) : bool
 ```
 #### Parameters
 **attributes:**
@@ -41,6 +41,20 @@ $image = $IMGHelper->print('style="width: 300px;"');
 <img src="images/02.jpg" style="width: 300px;">
 <img src="images/03.jpg" style="width: 300px;">
 ```
+### IMGHelper->random
+Returns a random image from the path.
+#### Description
+```php
+public random ( void ) : bool
+```
+#### Example
+```php
+$IMGHelper = new IMGHelper("images");
+$image = $IMGHelper->random();
+print("<img src='".$image."'>")
+```
+
+
 ## Extra
 ### is_image
 This verify if the filename has an image extension.
@@ -55,6 +69,7 @@ This will take these formats as true:
 - tiff
 - png
 - svg
+- bpm
 
 You can add more formats if is needed.
 #### Parameters
