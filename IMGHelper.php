@@ -5,7 +5,7 @@
     }
 
 
-    public function return(){
+    public function get_images(){
       if(!is_dir($this->path)) return false;
       $files = scandir($this->path);
 
@@ -20,7 +20,7 @@
 
 
     public function print($attributes=''){
-      $images = $this->return();
+      $images = $this->get_images();
       if(!$images) return false;
       foreach($images as $img){
         print('<img src="'.$img.'" '.$attributes.'>');
@@ -30,7 +30,7 @@
 
 
     public function random(){
-      $images = $this->return();
+      $images = $this->get_images();
       if(!$images) return false;
       if(count($images)>0){
         return $images[rand(0, count($images)-1)];
@@ -39,7 +39,7 @@
     }
 
 
-    private function use_path($file){
+    private function use_path($file=""){
       return preg_replace("/\/*$/", "", $this->path)."/".$file;
     }
   }

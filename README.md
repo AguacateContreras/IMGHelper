@@ -10,16 +10,16 @@ Then you can use it to import images from the path.
 
 ## Methods and functions
 
-### IMGHelper->return
+### IMGHelper->get_images
 This returns the images from the path.
 #### Description
 ```php
-public return ( void ) : array
+public get_images ( void ) : array
 ```
 #### Example
 ```php
 $IMGHelper = new IMGHelper("images");
-$images = $IMGHelper->return();
+$images = $IMGHelper->get_images();
 ```
 ### IMGHelper->print
 Gets images from the path and use `<img>` tag to print in the html page.
