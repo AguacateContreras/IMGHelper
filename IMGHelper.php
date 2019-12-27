@@ -9,4 +9,9 @@
       return preg_replace("/\/*$/", "", $this->path)."/".$file;
     }
   }
+
+
+  function is_image($filename){
+    return (preg_match("/\.(gif|jpg|jpeg|tiff|png|svg)$/", strtolower($filename)));
+  }
 ?>
